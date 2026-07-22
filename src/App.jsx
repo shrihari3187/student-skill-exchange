@@ -5,6 +5,7 @@ import Login from './Login'
 import Profile from './Profile'
 import Browse from './Browse'
 import Messages from './Messages'
+import Requests from './Requests'
 
 function App() {
   const [page, setPage] = useState('login')
@@ -51,6 +52,7 @@ function App() {
         {!user && <button onClick={() => setPage('signup')}>Sign Up</button>}
         {user && <button onClick={() => setPage('profile')}>My Profile</button>}
         {user && <button onClick={() => setPage('browse')}>Browse</button>}
+        {user && <button onClick={() => setPage('requests')}>Requests</button>}
         {user && <button onClick={() => setPage('messages')}>Messages</button>}
         {user && <button onClick={handleLogout}>Logout</button>}
       </nav>
@@ -58,7 +60,8 @@ function App() {
       {page === 'login' && <Login />}
       {page === 'signup' && <Signup />}
       {page === 'profile' && user && <Profile user={user} />}
-      {page === 'browse' && user && <Browse />}
+      {page === 'browse' && user && <Browse currentUser={user} currentName={senderName} />}
+      {page === 'requests' && user && <Requests user={user} senderName={senderName} />}
       {page === 'messages' && user && <Messages user={user} senderName={senderName} />}
     </div>
   )
