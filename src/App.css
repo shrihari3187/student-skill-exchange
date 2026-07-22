@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f1117;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+nav {
+  background-color: #1a1d2e;
+  padding: 14px 24px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid #2d3748;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav::before {
+  content: '🎓 SkillSwap';
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #7c6af7;
+  margin-right: auto;
+}
+
+nav button {
+  background: transparent;
+  color: #a0aec0;
+  border: 1px solid #2d3748;
+  padding: 7px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+nav button:hover {
+  background: #7c6af7;
+  color: white;
+  border-color: #7c6af7;
+}
+
+/* PAGE WRAPPER */
+.page {
+  max-width: 600px;
+  margin: 48px auto;
+  padding: 0 20px;
+}
+
+/* CARDS */
+.card {
+  background: #1a1d2e;
+  border: 1px solid #2d3748;
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f7fafc;
+  margin-bottom: 24px;
+}
+
+/* FORM ELEMENTS */
+input, textarea {
+  width: 100%;
+  background: #0f1117;
+  border: 1px solid #2d3748;
+  color: #e2e8f0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus {
+  border-color: #7c6af7;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+button[type="submit"], .btn {
+  width: 100%;
+  background: #7c6af7;
+  color: white;
+  border: none;
+  padding: 11px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 4px;
+}
+
+button[type="submit"]:hover, .btn:hover {
+  background: #6b58e8;
+}
+
+/* MESSAGES */
+.success-msg {
+  color: #68d391;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.error-msg {
+  color: #fc8181;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+/* BROWSE CARDS */
+.profile-card {
+  background: #1a1d2e;
+  border: 1px solid #2d3748;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
+}
+
+.profile-card:hover {
+  border-color: #7c6af7;
+}
+
+.profile-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f7fafc;
+  margin-bottom: 6px;
+}
+
+.profile-card p {
+  color: #a0aec0;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.skill-tag {
+  display: inline-block;
+  background: #2d3748;
+  color: #a0aec0;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin: 2px;
+}
+
+.skill-tag.offer {
+  background: #1a3a2a;
+  color: #68d391;
+}
+
+.skill-tag.want {
+  background: #2a1a3a;
+  color: #b794f4;
+}
+
+/* CHAT */
+.chat-box {
+  height: 400px;
+  overflow-y: scroll;
+  background: #0f1117;
+  border: 1px solid #2d3748;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.chat-form {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-form input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.chat-form button {
+  width: auto;
+  padding: 10px 20px;
+  margin-top: 0;
+  border-radius: 8px;
+  background: #7c6af7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.chat-form button:hover {
+  background: #6b58e8;
+}
