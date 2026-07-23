@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'
+import PrivateChat from './PrivateChat'
 
 function Requests({ user, senderName }) {
   const [incoming, setIncoming] = useState([])
   const [outgoing, setOutgoing] = useState([])
   const [message, setMessage] = useState('')
+  const [activeChat, setActiveChat] = useState(null)
 
   useEffect(() => {
     fetchRequests()
@@ -27,11 +29,11 @@ function Requests({ user, senderName }) {
     setOutgoing(out || [])
   }
 
-  const handleResponse = async (requestId, status) => {
+  const handleResponse = async (req, status) => {
     const { error } = await supabase
       .from('requests')
       .update({ status })
-      .eq('id', requestId)
+      .eq('id', req.id)
 
     if (!error) {
       setMessage(status === 'accepted' ? '✅ Request accepted!' : '❌ Request declined.')
@@ -39,10 +41,38 @@ function Requests({ user, senderName }) {
     }
   }
 
+  const openChat = (req, otherName) => {
+    const ids = [req.from_user_id, req.to_user_id].sort()
+    const roomId = ids[0] + '_' + ids[1]
+    setActiveChat({ roomId, otherName })
+  }
+
   const statusColor = (status) => {
     if (status === 'accepted') return '#68d391'
     if (status === 'declined') return '#fc8181'
     return '#f6ad55'
+  }
+
+  if (activeChat) {
+    return (
+      <div>
+        <div className="page">
+          <button onClick={() => setActiveChat(null)} style={{
+            background: '#2d3748', color: '#a0aec0', border: 'none',
+            padding: '8px 16px', borderRadius: '6px', cursor: 'pointer',
+            marginBottom: '16px'
+          }}>
+            ← Back to Requests
+          </button>
+        </div>
+        <PrivateChat
+          user={user}
+          senderName={senderName}
+          roomId={activeChat.roomId}
+          otherPersonName={activeChat.otherName}
+        />
+      </div>
+    )
   }
 
   return (
@@ -58,8 +88,7 @@ function Requests({ user, senderName }) {
         {incoming.map((req) => (
           <div key={req.id} style={{
             borderBottom: '1px solid #2d3748',
-            paddingBottom: '16px',
-            marginBottom: '16px'
+            paddingBottom: '16px', marginBottom: '16px'
           }}>
             <p style={{ fontWeight: '600', marginBottom: '4px' }}>{req.from_name}</p>
             <p style={{ color: '#a0aec0', fontSize: '0.9rem', marginBottom: '8px' }}>
@@ -69,24 +98,25 @@ function Requests({ user, senderName }) {
               Status: {req.status}
             </p>
             {req.status === 'pending' && (
-              <div style={{ display: 'flex', gap: '8px' }}>
-                <button
-                  onClick={() => handleResponse(req.id, 'accepted')}
-                  style={{
-                    background: '#276749', color: 'white', border: 'none',
-                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer'
-                  }}>
+              <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+                <button onClick={() => handleResponse(req, 'accepted')}
+                  style={{ background: '#276749', color: 'white', border: 'none',
+                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
                   Accept
                 </button>
-                <button
-                  onClick={() => handleResponse(req.id, 'declined')}
-                  style={{
-                    background: '#742a2a', color: 'white', border: 'none',
-                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer'
-                  }}>
+                <button onClick={() => handleResponse(req, 'declined')}
+                  style={{ background: '#742a2a', color: 'white', border: 'none',
+                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
                   Decline
                 </button>
               </div>
+            )}
+            {req.status === 'accepted' && (
+              <button onClick={() => openChat(req, req.from_name)}
+                style={{ background: '#7c6af7', color: 'white', border: 'none',
+                  padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
+                💬 Open Private Chat
+              </button>
             )}
           </div>
         ))}
@@ -98,16 +128,22 @@ function Requests({ user, senderName }) {
         {outgoing.map((req) => (
           <div key={req.id} style={{
             borderBottom: '1px solid #2d3748',
-            paddingBottom: '16px',
-            marginBottom: '16px'
+            paddingBottom: '16px', marginBottom: '16px'
           }}>
             <p style={{ fontWeight: '600', marginBottom: '4px' }}>To: {req.to_name}</p>
             <p style={{ color: '#a0aec0', fontSize: '0.9rem', marginBottom: '4px' }}>
               Skill: <strong style={{ color: '#e2e8f0' }}>{req.skill_requested}</strong>
             </p>
-            <p style={{ color: statusColor(req.status), fontSize: '0.85rem' }}>
+            <p style={{ color: statusColor(req.status), fontSize: '0.85rem', marginBottom: '8px' }}>
               Status: {req.status}
             </p>
+            {req.status === 'accepted' && (
+              <button onClick={() => openChat(req, req.to_name)}
+                style={{ background: '#7c6af7', color: 'white', border: 'none',
+                  padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
+                💬 Open Private Chat
+              </button>
+            )}
           </div>
         ))}
       </div>
