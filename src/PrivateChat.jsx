@@ -157,7 +157,7 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
               type="file"
               style={{ display: 'none' }}
               onChange={handleFileUpload}
-              accept=".pdf,.doc,.docx,.txt,.ppt,.pptx"
+              accept="*/*"
             />
           </label>
         </div>
