@@ -140,7 +140,13 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
             padding: '8px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem'
           }}>
             {uploading ? 'Uploading...' : '📎 Share File'}
-            <input type="file" style={{ display: 'none' }} onChange={handleFileUpload} />
+            <input 
+  type="file" 
+  style={{ display: 'none' }} 
+  onChange={handleFileUpload}
+  accept="image/*,.pdf,.doc,.docx,.txt"
+  capture={false}
+/>
           </label>
         </div>
       </div>
