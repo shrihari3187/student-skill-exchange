@@ -58,7 +58,7 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
     setUploading(true)
 
     const fileName = `${roomId}/${Date.now()}_${file.name}`
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('chat-files')
       .upload(fileName, file)
 
@@ -134,21 +134,34 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
           <button type="submit">Send</button>
         </form>
 
-        <div style={{ marginTop: '10px' }}>
+        <div style={{ marginTop: '10px', display: 'flex', gap: '8px' }}>
           <label style={{
             display: 'inline-block', background: '#2d3748', color: '#a0aec0',
             padding: '8px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem'
           }}>
-            {uploading ? 'Uploading...' : '📎 Share File'}
-            <input 
-  type="file" 
-  style={{ display: 'none' }} 
-  onChange={handleFileUpload}
-  accept="image/*,.pdf,.doc,.docx,.txt"
-  capture={false}
-/>
+            {uploading ? 'Uploading...' : '🖼️ Share Image'}
+            <input
+              type="file"
+              style={{ display: 'none' }}
+              onChange={handleFileUpload}
+              accept="image/*"
+            />
+          </label>
+
+          <label style={{
+            display: 'inline-block', background: '#2d3748', color: '#a0aec0',
+            padding: '8px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem'
+          }}>
+            {uploading ? 'Uploading...' : '📄 Share File'}
+            <input
+              type="file"
+              style={{ display: 'none' }}
+              onChange={handleFileUpload}
+              accept=".pdf,.doc,.docx,.txt,.ppt,.pptx"
+            />
           </label>
         </div>
+
       </div>
     </div>
   )
