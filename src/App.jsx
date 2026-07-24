@@ -13,22 +13,26 @@ function App() {
   const [senderName, setSenderName] = useState('')
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null)
-      if (session?.user) {
-        setPage('profile')
-        fetchName(session.user.id)
-      }
-    })
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    setUser(session?.user ?? null)
+    if (session?.user) {
+      fetchName(session.user.id)
+      setPage('requests')
+    }
+  })
 
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null)
-      if (session?.user) {
-        setPage('profile')
-        fetchName(session.user.id)
-      }
-    })
-  }, [])
+  const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    if (_event === 'SIGNED_OUT') {
+      setUser(null)
+      setPage('login')
+    } else if (session?.user) {
+      setUser(session.user)
+      fetchName(session.user.id)
+    }
+  })
+
+  return () => subscription.unsubscribe()
+}, [])
 
   const fetchName = async (userId) => {
     const { data } = await supabase
