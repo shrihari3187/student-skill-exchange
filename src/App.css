@@ -5,13 +5,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background-color: #B0EDF9;
   color: #04344C;
   font-family: 'Source Serif 4', 'Times New Roman', Times, serif;
   min-height: 100vh;
 }
-/* NAVBAR */
+
 nav {
   background-color: #B0EDF9;
   padding: 14px 24px;
@@ -23,15 +24,16 @@ nav {
   top: 0;
   z-index: 100;
 }
+
 nav::before {
   content: '🎓 SkillSwap';
   font-weight: 700;
   font-size: 1.2rem;
   color: #04344C;
   margin-right: auto;
-  font-family: 'Playfair Display', 'Times New Roman', serif;
-  letter-spacing: 0.5px;
+  font-family: 'Playfair Display', serif;
 }
+
 nav button {
   background: transparent;
   color: #04344C;
@@ -40,37 +42,35 @@ nav button {
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.875rem;
-  font-family: 'Source Serif 4', 'Times New Roman', serif;
-  font-weight: 500;
+  font-family: 'Source Serif 4', serif;
   transition: all 0.2s;
 }
+
 nav button:hover {
   background: #04344C;
   color: #B0EDF9;
-  border-color: #04344C;
 }
-/* PAGE WRAPPER */
+
 .page {
   max-width: 600px;
   margin: 48px auto;
   padding: 0 20px;
 }
-/* CARDS */
+
 .card {
   background: #cdf3fc;
   border: 1.5px solid #04344C;
   border-radius: 12px;
   padding: 32px;
+  margin-bottom: 16px;
 }
-.card h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  font-family: 'Playfair Display', 'Times New Roman', serif;
+
+.card h2, .card h3 {
+  font-family: 'Playfair Display', serif;
   color: #04344C;
-  margin-bottom: 24px;
-  letter-spacing: 0.3px;
+  margin-bottom: 16px;
 }
-/* FORM ELEMENTS */
+
 input, textarea {
   width: 100%;
   background: #B0EDF9;
@@ -79,23 +79,26 @@ input, textarea {
   padding: 10px 14px;
   border-radius: 8px;
   font-size: 0.95rem;
-  font-family: 'Source Serif 4', 'Times New Roman', serif;
-  font-weight: 400;
+  font-family: 'Source Serif 4', serif;
   margin-bottom: 12px;
   outline: none;
   transition: border-color 0.2s;
 }
+
 input::placeholder, textarea::placeholder {
   color: #3a7a94;
 }
+
 input:focus, textarea:focus {
   border-color: #04344C;
-  box-shadow: 0 0 0 3px rgba(176, 237, 249, 0.5);
+  box-shadow: 0 0 0 3px rgba(4, 52, 76, 0.15);
 }
+
 textarea {
   min-height: 80px;
   resize: vertical;
 }
+
 button[type="submit"], .btn {
   width: 100%;
   background: #04344C;
@@ -104,30 +107,31 @@ button[type="submit"], .btn {
   padding: 11px;
   border-radius: 8px;
   font-size: 1rem;
-  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
-  letter-spacing: 0.3px;
   cursor: pointer;
   transition: background 0.2s;
   margin-top: 4px;
 }
+
 button[type="submit"]:hover, .btn:hover {
   background: #052f45;
 }
-/* MESSAGES */
+
 .success-msg {
   color: #1a6b3a;
   margin-top: 12px;
   font-size: 0.9rem;
   font-weight: 500;
 }
+
 .error-msg {
   color: #c0392b;
   margin-top: 12px;
   font-size: 0.9rem;
   font-weight: 500;
 }
-/* BROWSE CARDS */
+
 .profile-card {
   background: #cdf3fc;
   border: 1.5px solid #04344C;
@@ -136,24 +140,24 @@ button[type="submit"]:hover, .btn:hover {
   margin-bottom: 16px;
   transition: box-shadow 0.2s;
 }
+
 .profile-card:hover {
   box-shadow: 0 4px 16px rgba(4, 52, 76, 0.18);
 }
+
 .profile-card h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-family: 'Playfair Display', serif;
   color: #04344C;
   margin-bottom: 6px;
 }
+
 .profile-card p {
   color: #04344C;
   font-size: 0.9rem;
-  font-weight: 400;
   margin-bottom: 8px;
-  line-height: 1.6;
-  opacity: 0.8;
+  opacity: 0.85;
 }
+
 .skill-tag {
   display: inline-block;
   background: #B0EDF9;
@@ -161,42 +165,40 @@ button[type="submit"]:hover, .btn:hover {
   padding: 3px 10px;
   border-radius: 20px;
   font-size: 0.8rem;
-  font-weight: 500;
   border: 1px solid #04344C;
-  font-family: 'Source Serif 4', 'Times New Roman', serif;
   margin: 2px;
 }
+
 .skill-tag.offer {
-  background: #B0EDF9;
   color: #1a6b3a;
   border-color: #1a6b3a;
 }
+
 .skill-tag.want {
-  background: #B0EDF9;
   color: #3d2a6e;
   border-color: #3d2a6e;
 }
-/* CHAT */
+
 .chat-box {
   height: 400px;
   overflow-y: scroll;
-  background: #cdf3fc;
+  background: #B0EDF9;
   border: 1.5px solid #04344C;
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #04344C;
 }
+
 .chat-form {
   display: flex;
   gap: 8px;
 }
+
 .chat-form input {
   flex: 1;
   margin-bottom: 0;
 }
+
 .chat-form button {
   width: auto;
   padding: 10px 20px;
@@ -206,9 +208,19 @@ button[type="submit"]:hover, .btn:hover {
   color: #B0EDF9;
   border: none;
   cursor: pointer;
-  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
 }
+
 .chat-form button:hover {
   background: #052f45;
+}
+
+/* Fix all inline white text in components */
+p, span, h1, h2, h3, h4, label {
+  color: #04344C;
+}
+
+a {
+  color: #04344C;
 }
