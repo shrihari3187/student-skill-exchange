@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #0f1117;
+  background-color: #B0EDF9;
   color: #e2e8f0;
   font-family: 'Segoe UI', sans-serif;
   min-height: 100vh;
@@ -13,12 +13,12 @@ body {
 
 /* NAVBAR */
 nav {
-  background-color: #1a1d2e;
+  background-color: #B0EDF9;
   padding: 14px 24px;
   display: flex;
   gap: 10px;
   align-items: center;
-  border-bottom: 1px solid #2d3748;
+  border-bottom: 1px solid #B0EDF9;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -28,14 +28,14 @@ nav::before {
   content: '🎓 SkillSwap';
   font-weight: 700;
   font-size: 1.2rem;
-  color: #7c6af7;
+  color: #04344C;
   margin-right: auto;
 }
 
 nav button {
   background: transparent;
   color: #a0aec0;
-  border: 1px solid #2d3748;
+  border: 1px solid #B0EDF9;
   padding: 7px 16px;
   border-radius: 6px;
   cursor: pointer;
@@ -44,9 +44,9 @@ nav button {
 }
 
 nav button:hover {
-  background: #7c6af7;
+  background: #04344C;
   color: white;
-  border-color: #7c6af7;
+  border-color: #04344C;
 }
 
 /* PAGE WRAPPER */
@@ -58,8 +58,8 @@ nav button:hover {
 
 /* CARDS */
 .card {
-  background: #1a1d2e;
-  border: 1px solid #2d3748;
+  background: #B0EDF9;
+  border: 1px solid #B0EDF9;
   border-radius: 12px;
   padding: 32px;
 }
@@ -74,8 +74,8 @@ nav button:hover {
 /* FORM ELEMENTS */
 input, textarea {
   width: 100%;
-  background: #0f1117;
-  border: 1px solid #2d3748;
+  background: #B0EDF9;
+  border: 1px solid #B0EDF9;
   color: #e2e8f0;
   padding: 10px 14px;
   border-radius: 8px;
@@ -86,7 +86,7 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-  border-color: #7c6af7;
+  border-color: #04344C;
 }
 
 textarea {
@@ -96,7 +96,7 @@ textarea {
 
 button[type="submit"], .btn {
   width: 100%;
-  background: #7c6af7;
+  background: #04344C;
   color: white;
   border: none;
   padding: 11px;
@@ -109,7 +109,7 @@ button[type="submit"], .btn {
 }
 
 button[type="submit"]:hover, .btn:hover {
-  background: #6b58e8;
+  background: #04344C;
 }
 
 /* MESSAGES */
@@ -127,8 +127,8 @@ button[type="submit"]:hover, .btn:hover {
 
 /* BROWSE CARDS */
 .profile-card {
-  background: #1a1d2e;
-  border: 1px solid #2d3748;
+  background: #B0EDF9;
+  border: 1px solid #B0EDF9;
   border-radius: 12px;
   padding: 20px 24px;
   margin-bottom: 16px;
@@ -136,7 +136,7 @@ button[type="submit"]:hover, .btn:hover {
 }
 
 .profile-card:hover {
-  border-color: #7c6af7;
+  border-color: #04344C;
 }
 
 .profile-card h3 {
@@ -154,7 +154,7 @@ button[type="submit"]:hover, .btn:hover {
 
 .skill-tag {
   display: inline-block;
-  background: #2d3748;
+  background: #B0EDF9;
   color: #a0aec0;
   padding: 3px 10px;
   border-radius: 20px;
@@ -168,7 +168,7 @@ button[type="submit"]:hover, .btn:hover {
 }
 
 .skill-tag.want {
-  background: #2a1a3a;
+  background: #B0EDF9;
   color: #b794f4;
 }
 
@@ -176,8 +176,8 @@ button[type="submit"]:hover, .btn:hover {
 .chat-box {
   height: 400px;
   overflow-y: scroll;
-  background: #0f1117;
-  border: 1px solid #2d3748;
+  background: #B0EDF9;
+  border: 1px solid #B0EDF9;
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
@@ -198,7 +198,7 @@ button[type="submit"]:hover, .btn:hover {
   padding: 10px 20px;
   margin-top: 0;
   border-radius: 8px;
-  background: #7c6af7;
+  background: #04344C;
   color: white;
   border: none;
   cursor: pointer;
@@ -206,5 +206,5 @@ button[type="submit"]:hover, .btn:hover {
 }
 
 .chat-form button:hover {
-  background: #6b58e8;
+  background: #04344C;
 }
