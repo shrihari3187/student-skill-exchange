@@ -100,7 +100,7 @@ function Requests({ user, senderName }) {
               Status: {req.status}
             </p>
             {req.status === 'pending' && (
-              <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+              <div style={{ display: 'flex', gap: '8px' }}>
                 <button onClick={() => handleResponse(req, 'accepted')}
                   style={{ background: '#276749', color: 'white', border: 'none',
                     padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
@@ -114,13 +114,6 @@ function Requests({ user, senderName }) {
               </div>
             )}
             {req.status === 'accepted' && (
-              <button onClick={() => openChat(req, req.from_name)}
-                style={{ background: '#7c6af7', color: 'white', border: 'none',
-                  padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
-                💬 Open Private Chat
-              </button>
-            )}
-            {req.status === 'accepted' && (
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                 <button onClick={() => openChat(req, req.from_name)}
                   style={{ background: '#7c6af7', color: 'white', border: 'none',
@@ -131,20 +124,6 @@ function Requests({ user, senderName }) {
                   style={{ background: '#d69e2e', color: 'white', border: 'none',
                     padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
                   ⭐ Rate {req.from_name}
-                </button>
-              </div>
-            )}
-            {req.status === 'accepted' && (
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <button onClick={() => openChat(req, req.to_name)}
-                  style={{ background: '#7c6af7', color: 'white', border: 'none',
-                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
-                  💬 Open Private Chat
-                </button>
-                <button onClick={() => setRatingTarget({ id: req.to_user_id, name: req.to_name })}
-                  style={{ background: '#d69e2e', color: 'white', border: 'none',
-                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
-                  ⭐ Rate {req.to_name}
                 </button>
               </div>
             )}
@@ -168,25 +147,32 @@ function Requests({ user, senderName }) {
               Status: {req.status}
             </p>
             {req.status === 'accepted' && (
-              <button onClick={() => openChat(req, req.to_name)}
-                style={{ background: '#7c6af7', color: 'white', border: 'none',
-                  padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
-                💬 Open Private Chat
-              </button>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                <button onClick={() => openChat(req, req.to_name)}
+                  style={{ background: '#7c6af7', color: 'white', border: 'none',
+                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
+                  💬 Open Private Chat
+                </button>
+                <button onClick={() => setRatingTarget({ id: req.to_user_id, name: req.to_name })}
+                  style={{ background: '#d69e2e', color: 'white', border: 'none',
+                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
+                  ⭐ Rate {req.to_name}
+                </button>
+              </div>
             )}
           </div>
         ))}
-
       </div>
+
       {ratingTarget && (
-  <Rating
-    user={user}
-    senderName={senderName}
-    ratedUserId={ratingTarget.id}
-    ratedUserName={ratingTarget.name}
-    onClose={() => setRatingTarget(null)}
-  />
-)}
+        <Rating
+          user={user}
+          senderName={senderName}
+          ratedUserId={ratingTarget.id}
+          ratedUserName={ratingTarget.name}
+          onClose={() => setRatingTarget(null)}
+        />
+      )}
     </div>
   )
 }
