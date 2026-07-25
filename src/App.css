@@ -1,220 +1,209 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-body{
-  background:#B0EDF9;
-  color:#04344C;
-  font-family:'Segoe UI',sans-serif;
-  min-height:100vh;
+body {
+  background-color: #04344C;
+  color: #B0EDF9;
+  font-family: 'Source Serif 4', 'Times New Roman', Times, serif;
+  min-height: 100vh;
 }
-
-/* ================= NAVBAR ================= */
-
-nav{
-  background:#04344C;
-  padding:14px 24px;
-  display:flex;
-  gap:10px;
-  align-items:center;
-  border-bottom:2px solid #0A4D69;
-  position:sticky;
-  top:0;
-  z-index:100;
+/* NAVBAR */
+nav {
+  background-color: #04344C;
+  padding: 14px 24px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid #0a4a66;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-
-nav::before{
-  content:"🎓 SkillSwap";
-  font-weight:700;
-  font-size:1.2rem;
-  color:#B0EDF9;
-  margin-right:auto;
+nav::before {
+  content: '🎓 SkillSwap';
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #B0EDF9;
+  margin-right: auto;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  letter-spacing: 0.5px;
 }
-
-nav button{
-  background:transparent;
-  color:#B0EDF9;
-  border:1px solid #B0EDF9;
-  padding:8px 18px;
-  border-radius:8px;
-  cursor:pointer;
-  transition:.3s;
+nav button {
+  background: transparent;
+  color: #B0EDF9;
+  border: 1px solid #B0EDF9;
+  padding: 7px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-family: 'Source Serif 4', 'Times New Roman', serif;
+  font-weight: 500;
+  transition: all 0.2s;
 }
-
-nav button:hover{
-  background:#B0EDF9;
-  color:#04344C;
+nav button:hover {
+  background: #B0EDF9;
+  color: #04344C;
+  border-color: #B0EDF9;
 }
-
-/* ================= PAGE ================= */
-
-.page{
-  max-width:650px;
-  margin:50px auto;
-  padding:0 20px;
+/* PAGE WRAPPER */
+.page {
+  max-width: 600px;
+  margin: 48px auto;
+  padding: 0 20px;
 }
-
-/* ================= CARD ================= */
-
-.card{
-  background:white;
-  border:2px solid #7FD7EA;
-  border-radius:16px;
-  padding:32px;
-  box-shadow:0 8px 20px rgba(4,52,76,.12);
+/* CARDS */
+.card {
+  background: #05405c;
+  border: 1px solid #0a4a66;
+  border-radius: 12px;
+  padding: 32px;
 }
-
-.card h2{
-  color:#04344C;
-  margin-bottom:25px;
+.card h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  color: #B0EDF9;
+  margin-bottom: 24px;
+  letter-spacing: 0.3px;
 }
-
-/* ================= FORM ================= */
-
-input,
-textarea{
-  width:100%;
-  background:#D8F7FD;
-  color:#04344C;
-  border:1px solid #7FD7EA;
-  padding:12px;
-  border-radius:8px;
-  margin-bottom:14px;
-  font-size:15px;
-  outline:none;
-  transition:.3s;
+/* FORM ELEMENTS */
+input, textarea {
+  width: 100%;
+  background: #04344C;
+  border: 1px solid #0a4a66;
+  color: #B0EDF9;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Source Serif 4', 'Times New Roman', serif;
+  font-weight: 400;
+  margin-bottom: 12px;
+  outline: none;
+  transition: border-color 0.2s;
 }
-
-input::placeholder,
-textarea::placeholder{
-  color:#4A6B7A;
+input::placeholder, textarea::placeholder {
+  color: #5a8fa3;
 }
-
-input:focus,
-textarea:focus{
-  border-color:#04344C;
-  box-shadow:0 0 8px rgba(4,52,76,.2);
+input:focus, textarea:focus {
+  border-color: #B0EDF9;
 }
-
-textarea{
-  resize:vertical;
-  min-height:90px;
+textarea {
+  min-height: 80px;
+  resize: vertical;
 }
-
-/* ================= BUTTON ================= */
-
-button[type="submit"],
-.btn{
-  width:100%;
-  background:#04344C;
-  color:white;
-  border:none;
-  padding:12px;
-  border-radius:8px;
-  font-size:16px;
-  font-weight:600;
-  cursor:pointer;
-  transition:.3s;
+button[type="submit"], .btn {
+  width: 100%;
+  background: #B0EDF9;
+  color: #04344C;
+  border: none;
+  padding: 11px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 4px;
 }
-
-button[type="submit"]:hover,
-.btn:hover{
-  background:#06506E;
+button[type="submit"]:hover, .btn:hover {
+  background: #c8f3fc;
 }
-
-/* ================= MESSAGE ================= */
-
-.success-msg{
-  color:#008A4E;
-  margin-top:12px;
+/* MESSAGES */
+.success-msg {
+  color: #68d391;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
-
-.error-msg{
-  color:#D62828;
-  margin-top:12px;
+.error-msg {
+  color: #fc8181;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
-
-/* ================= PROFILE ================= */
-
-.profile-card{
-  background:white;
-  border:2px solid #7FD7EA;
-  border-radius:16px;
-  padding:22px;
-  margin-bottom:18px;
-  transition:.3s;
-  box-shadow:0 5px 15px rgba(4,52,76,.08);
+/* BROWSE CARDS */
+.profile-card {
+  background: #05405c;
+  border: 1px solid #0a4a66;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
 }
-
-.profile-card:hover{
-  transform:translateY(-3px);
-  border-color:#04344C;
+.profile-card:hover {
+  border-color: #B0EDF9;
 }
-
-.profile-card h3{
-  color:#04344C;
-  margin-bottom:8px;
+.profile-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  color: #B0EDF9;
+  margin-bottom: 6px;
+  letter-spacing: 0.2px;
 }
-
-.profile-card p{
-  color:#4A6B7A;
+.profile-card p {
+  color: #7ecde8;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  line-height: 1.6;
 }
-
-/* ================= TAGS ================= */
-
-.skill-tag{
-  display:inline-block;
-  background:#D8F7FD;
-  color:#04344C;
-  padding:5px 12px;
-  border-radius:30px;
-  font-size:13px;
-  margin:4px;
+.skill-tag {
+  display: inline-block;
+  background: #0a4a66;
+  color: #B0EDF9;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: 'Source Serif 4', 'Times New Roman', serif;
+  margin: 2px;
 }
-
-.skill-tag.offer{
-  background:#04344C;
-  color:#B0EDF9;
+.skill-tag.offer {
+  background: #1a3a2a;
+  color: #68d391;
 }
-
-.skill-tag.want{
-  background:#7FD7EA;
-  color:#04344C;
+.skill-tag.want {
+  background: #0a2a40;
+  color: #b794f4;
 }
-
-/* ================= CHAT ================= */
-
-.chat-box{
-  height:400px;
-  overflow-y:auto;
-  background:white;
-  border:2px solid #7FD7EA;
-  border-radius:16px;
-  padding:18px;
-  margin-bottom:15px;
+/* CHAT */
+.chat-box {
+  height: 400px;
+  overflow-y: scroll;
+  background: #05405c;
+  border: 1px solid #0a4a66;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
-
-.chat-form{
-  display:flex;
-  gap:10px;
+.chat-form {
+  display: flex;
+  gap: 8px;
 }
-
-.chat-form input{
-  flex:1;
-  margin-bottom:0;
+.chat-form input {
+  flex: 1;
+  margin-bottom: 0;
 }
-
-.chat-form button{
-  width:auto;
-  padding:12px 22px;
-  background:#04344C;
-  color:white;
-  border:none;
-  border-radius:8px;
+.chat-form button {
+  width: auto;
+  padding: 10px 20px;
+  margin-top: 0;
+  border-radius: 8px;
+  background: #B0EDF9;
+  color: #04344C;
+  border: none;
+  cursor: pointer;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-weight: 600;
 }
-
-.chat-form button:hover{
-  background:#06506E;
+.chat-form button:hover {
+  background: #c8f3fc;
 }
