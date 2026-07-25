@@ -7,18 +7,18 @@
 }
 body {
   background-color: #04344C;
-  color: #B0EDF9;
+  color: #04344C;
   font-family: 'Source Serif 4', 'Times New Roman', Times, serif;
   min-height: 100vh;
 }
 /* NAVBAR */
 nav {
-  background-color: #04344C;
+  background-color: #B0EDF9;
   padding: 14px 24px;
   display: flex;
   gap: 10px;
   align-items: center;
-  border-bottom: 1px solid #0a4a66;
+  border-bottom: 1px solid #04344C;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -27,15 +27,15 @@ nav::before {
   content: '🎓 SkillSwap';
   font-weight: 700;
   font-size: 1.2rem;
-  color: #B0EDF9;
+  color: #04344C;
   margin-right: auto;
   font-family: 'Playfair Display', 'Times New Roman', serif;
   letter-spacing: 0.5px;
 }
 nav button {
   background: transparent;
-  color: #B0EDF9;
-  border: 1px solid #B0EDF9;
+  color: #04344C;
+  border: 1px solid #04344C;
   padding: 7px 16px;
   border-radius: 6px;
   cursor: pointer;
@@ -45,9 +45,9 @@ nav button {
   transition: all 0.2s;
 }
 nav button:hover {
-  background: #B0EDF9;
-  color: #04344C;
-  border-color: #B0EDF9;
+  background: #04344C;
+  color: #B0EDF9;
+  border-color: #04344C;
 }
 /* PAGE WRAPPER */
 .page {
@@ -57,8 +57,8 @@ nav button:hover {
 }
 /* CARDS */
 .card {
-  background: #05405c;
-  border: 1px solid #0a4a66;
+  background: #B0EDF9;
+  border: 1px solid #04344C;
   border-radius: 12px;
   padding: 32px;
 }
@@ -66,16 +66,16 @@ nav button:hover {
   font-size: 1.6rem;
   font-weight: 700;
   font-family: 'Playfair Display', 'Times New Roman', serif;
-  color: #B0EDF9;
+  color: #04344C;
   margin-bottom: 24px;
   letter-spacing: 0.3px;
 }
 /* FORM ELEMENTS */
 input, textarea {
   width: 100%;
-  background: #04344C;
-  border: 1px solid #0a4a66;
-  color: #B0EDF9;
+  background: #ffffff;
+  border: 1px solid #04344C;
+  color: #04344C;
   padding: 10px 14px;
   border-radius: 8px;
   font-size: 0.95rem;
@@ -89,7 +89,8 @@ input::placeholder, textarea::placeholder {
   color: #5a8fa3;
 }
 input:focus, textarea:focus {
-  border-color: #B0EDF9;
+  border-color: #04344C;
+  box-shadow: 0 0 0 2px rgba(4, 52, 76, 0.15);
 }
 textarea {
   min-height: 80px;
@@ -97,8 +98,8 @@ textarea {
 }
 button[type="submit"], .btn {
   width: 100%;
-  background: #B0EDF9;
-  color: #04344C;
+  background: #04344C;
+  color: #B0EDF9;
   border: none;
   padding: 11px;
   border-radius: 8px;
@@ -111,51 +112,52 @@ button[type="submit"], .btn {
   margin-top: 4px;
 }
 button[type="submit"]:hover, .btn:hover {
-  background: #c8f3fc;
+  background: #052f45;
 }
 /* MESSAGES */
 .success-msg {
-  color: #68d391;
+  color: #1a6b3a;
   margin-top: 12px;
   font-size: 0.9rem;
   font-weight: 500;
 }
 .error-msg {
-  color: #fc8181;
+  color: #c0392b;
   margin-top: 12px;
   font-size: 0.9rem;
   font-weight: 500;
 }
 /* BROWSE CARDS */
 .profile-card {
-  background: #05405c;
-  border: 1px solid #0a4a66;
+  background: #B0EDF9;
+  border: 1px solid #04344C;
   border-radius: 12px;
   padding: 20px 24px;
   margin-bottom: 16px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .profile-card:hover {
-  border-color: #B0EDF9;
+  border-color: #04344C;
+  box-shadow: 0 4px 12px rgba(4, 52, 76, 0.15);
 }
 .profile-card h3 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   font-family: 'Playfair Display', 'Times New Roman', serif;
-  color: #B0EDF9;
+  color: #04344C;
   margin-bottom: 6px;
-  letter-spacing: 0.2px;
 }
 .profile-card p {
-  color: #7ecde8;
+  color: #04344C;
   font-size: 0.9rem;
   font-weight: 400;
   margin-bottom: 8px;
   line-height: 1.6;
+  opacity: 0.75;
 }
 .skill-tag {
   display: inline-block;
-  background: #0a4a66;
+  background: #04344C;
   color: #B0EDF9;
   padding: 3px 10px;
   border-radius: 20px;
@@ -165,24 +167,25 @@ button[type="submit"]:hover, .btn:hover {
   margin: 2px;
 }
 .skill-tag.offer {
-  background: #1a3a2a;
-  color: #68d391;
+  background: #1a6b3a;
+  color: #B0EDF9;
 }
 .skill-tag.want {
-  background: #0a2a40;
-  color: #b794f4;
+  background: #3d2a6e;
+  color: #B0EDF9;
 }
 /* CHAT */
 .chat-box {
   height: 400px;
   overflow-y: scroll;
-  background: #05405c;
-  border: 1px solid #0a4a66;
+  background: #B0EDF9;
+  border: 1px solid #04344C;
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
   font-size: 0.95rem;
   line-height: 1.7;
+  color: #04344C;
 }
 .chat-form {
   display: flex;
@@ -197,13 +200,13 @@ button[type="submit"]:hover, .btn:hover {
   padding: 10px 20px;
   margin-top: 0;
   border-radius: 8px;
-  background: #B0EDF9;
-  color: #04344C;
+  background: #04344C;
+  color: #B0EDF9;
   border: none;
   cursor: pointer;
   font-family: 'Playfair Display', 'Times New Roman', serif;
   font-weight: 600;
 }
 .chat-form button:hover {
-  background: #c8f3fc;
+  background: #052f45;
 }
