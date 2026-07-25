@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #04344C;
+  background-color: #B0EDF9;
   color: #04344C;
   font-family: 'Source Serif 4', 'Times New Roman', Times, serif;
   min-height: 100vh;
@@ -18,7 +18,7 @@ nav {
   display: flex;
   gap: 10px;
   align-items: center;
-  border-bottom: 1px solid #04344C;
+  border-bottom: 2px solid #04344C;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -35,7 +35,7 @@ nav::before {
 nav button {
   background: transparent;
   color: #04344C;
-  border: 1px solid #04344C;
+  border: 1.5px solid #04344C;
   padding: 7px 16px;
   border-radius: 6px;
   cursor: pointer;
@@ -57,8 +57,8 @@ nav button:hover {
 }
 /* CARDS */
 .card {
-  background: #B0EDF9;
-  border: 1px solid #04344C;
+  background: #cdf3fc;
+  border: 1.5px solid #04344C;
   border-radius: 12px;
   padding: 32px;
 }
@@ -73,8 +73,8 @@ nav button:hover {
 /* FORM ELEMENTS */
 input, textarea {
   width: 100%;
-  background: #ffffff;
-  border: 1px solid #04344C;
+  background: #B0EDF9;
+  border: 1.5px solid #04344C;
   color: #04344C;
   padding: 10px 14px;
   border-radius: 8px;
@@ -86,11 +86,11 @@ input, textarea {
   transition: border-color 0.2s;
 }
 input::placeholder, textarea::placeholder {
-  color: #5a8fa3;
+  color: #3a7a94;
 }
 input:focus, textarea:focus {
   border-color: #04344C;
-  box-shadow: 0 0 0 2px rgba(4, 52, 76, 0.15);
+  box-shadow: 0 0 0 3px rgba(176, 237, 249, 0.5);
 }
 textarea {
   min-height: 80px;
@@ -129,16 +129,15 @@ button[type="submit"]:hover, .btn:hover {
 }
 /* BROWSE CARDS */
 .profile-card {
-  background: #B0EDF9;
-  border: 1px solid #04344C;
+  background: #cdf3fc;
+  border: 1.5px solid #04344C;
   border-radius: 12px;
   padding: 20px 24px;
   margin-bottom: 16px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: box-shadow 0.2s;
 }
 .profile-card:hover {
-  border-color: #04344C;
-  box-shadow: 0 4px 12px rgba(4, 52, 76, 0.15);
+  box-shadow: 0 4px 16px rgba(4, 52, 76, 0.18);
 }
 .profile-card h3 {
   font-size: 1.1rem;
@@ -153,33 +152,36 @@ button[type="submit"]:hover, .btn:hover {
   font-weight: 400;
   margin-bottom: 8px;
   line-height: 1.6;
-  opacity: 0.75;
+  opacity: 0.8;
 }
 .skill-tag {
   display: inline-block;
-  background: #04344C;
-  color: #B0EDF9;
+  background: #B0EDF9;
+  color: #04344C;
   padding: 3px 10px;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
+  border: 1px solid #04344C;
   font-family: 'Source Serif 4', 'Times New Roman', serif;
   margin: 2px;
 }
 .skill-tag.offer {
-  background: #1a6b3a;
-  color: #B0EDF9;
+  background: #B0EDF9;
+  color: #1a6b3a;
+  border-color: #1a6b3a;
 }
 .skill-tag.want {
-  background: #3d2a6e;
-  color: #B0EDF9;
+  background: #B0EDF9;
+  color: #3d2a6e;
+  border-color: #3d2a6e;
 }
 /* CHAT */
 .chat-box {
   height: 400px;
   overflow-y: scroll;
-  background: #B0EDF9;
-  border: 1px solid #04344C;
+  background: #cdf3fc;
+  border: 1.5px solid #04344C;
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
