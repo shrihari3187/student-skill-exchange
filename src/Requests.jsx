@@ -1,8 +1,10 @@
+import Rating from './Rating'
 import { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'
 import PrivateChat from './PrivateChat'
 
 function Requests({ user, senderName }) {
+  const [ratingTarget, setRatingTarget] = useState(null)
   const [incoming, setIncoming] = useState([])
   const [outgoing, setOutgoing] = useState([])
   const [message, setMessage] = useState('')
@@ -118,6 +120,34 @@ function Requests({ user, senderName }) {
                 💬 Open Private Chat
               </button>
             )}
+            {req.status === 'accepted' && (
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                <button onClick={() => openChat(req, req.from_name)}
+                  style={{ background: '#7c6af7', color: 'white', border: 'none',
+                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
+                  💬 Open Private Chat
+                </button>
+                <button onClick={() => setRatingTarget({ id: req.from_user_id, name: req.from_name })}
+                  style={{ background: '#d69e2e', color: 'white', border: 'none',
+                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
+                  ⭐ Rate {req.from_name}
+                </button>
+              </div>
+            )}
+            {req.status === 'accepted' && (
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                <button onClick={() => openChat(req, req.to_name)}
+                  style={{ background: '#7c6af7', color: 'white', border: 'none',
+                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
+                  💬 Open Private Chat
+                </button>
+                <button onClick={() => setRatingTarget({ id: req.to_user_id, name: req.to_name })}
+                  style={{ background: '#d69e2e', color: 'white', border: 'none',
+                    padding: '7px 16px', borderRadius: '6px', cursor: 'pointer' }}>
+                  ⭐ Rate {req.to_name}
+                </button>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -146,7 +176,17 @@ function Requests({ user, senderName }) {
             )}
           </div>
         ))}
+
       </div>
+      {ratingTarget && (
+  <Rating
+    user={user}
+    senderName={senderName}
+    ratedUserId={ratingTarget.id}
+    ratedUserName={ratingTarget.name}
+    onClose={() => setRatingTarget(null)}
+  />
+)}
     </div>
   )
 }

@@ -3,11 +3,13 @@ import { supabase } from './supabaseClient'
 
 function Browse({ currentUser, currentName }) {
   const [profiles, setProfiles] = useState([])
+  const [ratings, setRatings] = useState({})
   const [search, setSearch] = useState('')
   const [message, setMessage] = useState('Loading...')
 
   useEffect(() => {
     fetchProfiles()
+    fetchRatings()
   }, [])
 
   const fetchProfiles = async () => {
@@ -22,6 +24,25 @@ function Browse({ currentUser, currentName }) {
     } else {
       setProfiles(data)
       setMessage('')
+    }
+  }
+
+  const fetchRatings = async () => {
+    const { data } = await supabase
+      .from('ratings')
+      .select('*')
+
+    if (data) {
+      const ratingMap = {}
+      data.forEach((r) => {
+        if (!ratingMap[r.rated_user_id]) {
+          ratingMap[r.rated_user_id] = { total: 0, count: 0, comments: [] }
+        }
+        ratingMap[r.rated_user_id].total += r.stars
+        ratingMap[r.rated_user_id].count += 1
+        if (r.comment) ratingMap[r.rated_user_id].comments.push({ name: r.rater_name, comment: r.comment, stars: r.stars })
+      })
+      setRatings(ratingMap)
     }
   }
 
@@ -44,6 +65,12 @@ function Browse({ currentUser, currentName }) {
     }
   }
 
+  const getAvgRating = (userId) => {
+    const r = ratings[userId]
+    if (!r) return null
+    return (r.total / r.count).toFixed(1)
+  }
+
   const filtered = profiles.filter(p =>
     p.full_name?.toLowerCase().includes(search.toLowerCase()) ||
     p.skills_offered?.toLowerCase().includes(search.toLowerCase()) ||
@@ -60,7 +87,19 @@ function Browse({ currentUser, currentName }) {
       <p className="error-msg">{message}</p>
       {filtered.map((profile) => (
         <div key={profile.id} className="profile-card">
-          <h3>{profile.full_name}</h3>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <h3>{profile.full_name}</h3>
+            {getAvgRating(profile.id) && (
+              <div style={{ textAlign: 'right' }}>
+                <span style={{ color: '#f6ad55', fontSize: '1rem' }}>
+                  {'⭐'.repeat(Math.round(getAvgRating(profile.id)))}
+                </span>
+                <p style={{ color: '#a0aec0', fontSize: '0.8rem' }}>
+                  {getAvgRating(profile.id)}/5 ({ratings[profile.id].count} reviews)
+                </p>
+              </div>
+            )}
+          </div>
           <p>{profile.bio}</p>
           <div>
             {profile.skills_offered?.split(',').map((s, i) => (
@@ -72,6 +111,20 @@ function Browse({ currentUser, currentName }) {
               <span key={i} className="skill-tag want">→ {s.trim()}</span>
             ))}
           </div>
+
+          {ratings[profile.id]?.comments.length > 0 && (
+            <div style={{ marginTop: '10px', borderTop: '1px solid #2d3748', paddingTop: '10px' }}>
+              <p style={{ color: '#a0aec0', fontSize: '0.8rem', marginBottom: '6px' }}>Recent reviews:</p>
+              {ratings[profile.id].comments.slice(0, 2).map((c, i) => (
+                <div key={i} style={{ marginBottom: '6px' }}>
+                  <p style={{ color: '#e2e8f0', fontSize: '0.85rem' }}>
+                    <strong>{c.name}</strong>: {c.comment}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+
           {profile.id !== currentUser?.id && (
             <button
               onClick={() => handleRequest(profile)}

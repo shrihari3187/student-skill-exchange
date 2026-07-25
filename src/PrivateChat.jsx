@@ -52,6 +52,19 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
     setNewMessage('')
   }
 
+  const startMeeting = async () => {
+    const meetLink = `https://meet.google.com/new`
+    const message = `📹 Join our Google Meet session: ${meetLink}`
+
+    await supabase.from('private_messages').insert({
+      room_id: roomId,
+      sender_id: user.id,
+      sender_name: senderName || user.email,
+      content: message,
+      file_url: null
+    })
+  }
+
   const handleFileUpload = async (e) => {
     const file = e.target.files[0]
     if (!file) return
@@ -90,6 +103,7 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
         <p style={{ color: '#a0aec0', fontSize: '0.85rem', marginBottom: '16px' }}>
           🔒 Only you and {otherPersonName} can see this conversation
         </p>
+
         <div className="chat-box">
           {messages.map((msg) => (
             <div key={msg.id} style={{
@@ -99,6 +113,7 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
               <div style={{ fontSize: '0.75rem', color: '#718096', marginBottom: '3px' }}>
                 {msg.sender_name}
               </div>
+
               {msg.file_url ? (
                 <a href={msg.file_url} target="_blank" rel="noreferrer"
                   style={{
@@ -109,6 +124,25 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
                   }}>
                   {msg.content}
                 </a>
+              ) : msg.content.includes('meet.google.com') ? (
+                <div style={{
+                  display: 'inline-block',
+                  background: '#0f9d58',
+                  padding: '10px 14px', borderRadius: '12px',
+                  maxWidth: '75%', textAlign: 'left'
+                }}>
+                  <p style={{ color: 'white', fontSize: '0.9rem', marginBottom: '6px' }}>
+                    {msg.sender_name} started a meeting!
+                  </p>
+                  <a href={msg.content.split(': ')[1]} target="_blank" rel="noreferrer"
+                    style={{
+                      background: 'white', color: '#0f9d58', padding: '6px 12px',
+                      borderRadius: '4px', textDecoration: 'none', fontWeight: '600',
+                      fontSize: '0.85rem'
+                    }}>
+                    Join Google Meet 📹
+                  </a>
+                </div>
               ) : (
                 <span style={{
                   display: 'inline-block',
@@ -134,7 +168,17 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
           <button type="submit">Send</button>
         </form>
 
-        <div style={{ marginTop: '10px', display: 'flex', gap: '8px' }}>
+        <div style={{ marginTop: '10px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          <button
+            onClick={startMeeting}
+            style={{
+              background: '#0f9d58', color: 'white', border: 'none',
+              padding: '8px 16px', borderRadius: '6px', cursor: 'pointer',
+              fontSize: '0.85rem', fontWeight: '600'
+            }}>
+            📹 Start Google Meet
+          </button>
+
           <label style={{
             display: 'inline-block', background: '#2d3748', color: '#a0aec0',
             padding: '8px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem'
