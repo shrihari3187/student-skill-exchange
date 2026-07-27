@@ -141,7 +141,7 @@ function Requests({ user, senderName }) {
           }}>
             <p style={{ fontWeight: '600', marginBottom: '4px' }}>To: {req.to_name}</p>
             <p style={{ color: '#3a7a94', fontSize: '0.9rem', marginBottom: '4px' }}>
-              Skill: <strong style={{ color: '#e2e8f0' }}>{req.skill_requested}</strong>
+              Skill: <strong style={{ color: '#04344C' }}>{req.skill_requested}</strong>
             </p>
             <p style={{ color: statusColor(req.status), fontSize: '0.85rem', marginBottom: '8px' }}>
               Status: {req.status}
