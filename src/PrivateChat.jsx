@@ -100,7 +100,7 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
     <div className="page">
       <div className="card">
         <h2 style={{ marginBottom: '4px' }}>Private Chat</h2>
-        <p style={{ color: '#a0aec0', fontSize: '0.85rem', marginBottom: '16px' }}>
+        <p style={{ color: '#3a7a94', fontSize: '0.85rem', marginBottom: '16px' }}>
           🔒 Only you and {otherPersonName} can see this conversation
         </p>
 
@@ -110,7 +110,7 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
               marginBottom: '12px',
               textAlign: msg.sender_id === user.id ? 'right' : 'left'
             }}>
-              <div style={{ fontSize: '0.75rem', color: '#718096', marginBottom: '3px' }}>
+              <div style={{ fontSize: '0.75rem', color: '#3a7a94', marginBottom: '3px' }}>
                 {msg.sender_name}
               </div>
 
@@ -180,7 +180,7 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
           </button>
 
           <label style={{
-            display: 'inline-block', background: '#2d3748', color: '#a0aec0',
+            display: 'inline-block', background: '#2d3748', color: '#3a7a94',
             padding: '8px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem'
           }}>
             {uploading ? 'Uploading...' : '🖼️ Share Image'}
@@ -193,7 +193,7 @@ function PrivateChat({ user, senderName, roomId, otherPersonName }) {
           </label>
 
           <label style={{
-            display: 'inline-block', background: '#2d3748', color: '#a0aec0',
+            display: 'inline-block', background: '#2d3748', color: '#3a7a94',
             padding: '8px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem'
           }}>
             {uploading ? 'Uploading...' : '📄 Share File'}

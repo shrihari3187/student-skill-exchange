@@ -37,20 +37,20 @@ function Rating({ user, senderName, ratedUserId, ratedUserName, onClose }) {
       alignItems: 'center', justifyContent: 'center', zIndex: 1000
     }}>
       <div style={{
-        background: '#1a1d2e', border: '1px solid #2d3748',
+        background: '#cdf3fc', border: '1px solid #04344C',
         borderRadius: '12px', padding: '32px', maxWidth: '400px', width: '90%'
       }}>
         <h3 style={{ marginBottom: '8px', color: '#f7fafc' }}>
           Rate {ratedUserName}
         </h3>
-        <p style={{ color: '#a0aec0', fontSize: '0.9rem', marginBottom: '20px' }}>
+        <p style={{ color: '#3a7a94', fontSize: '0.9rem', marginBottom: '20px' }}>
           How was your skill exchange session?
         </p>
 
         {!submitted ? (
           <form onSubmit={handleSubmit}>
             <div style={{ marginBottom: '16px' }}>
-              <p style={{ color: '#a0aec0', marginBottom: '8px', fontSize: '0.9rem' }}>
+              <p style={{ color: '#3a7a94', marginBottom: '8px', fontSize: '0.9rem' }}>
                 Select rating:
               </p>
               <div style={{ display: 'flex', gap: '8px' }}>
@@ -95,7 +95,7 @@ function Rating({ user, senderName, ratedUserId, ratedUserName, onClose }) {
                 type="button"
                 onClick={onClose}
                 style={{
-                  flex: 1, background: '#2d3748', color: '#a0aec0',
+                  flex: 1, background: '#2d3748', color: '#3a7a94',
                   border: 'none', padding: '11px', borderRadius: '8px',
                   cursor: 'pointer', fontSize: '1rem'
                 }}>

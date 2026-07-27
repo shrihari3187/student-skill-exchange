@@ -61,7 +61,7 @@ function Messages({ user, senderName }) {
             marginBottom: '12px',
             textAlign: msg.user_id === user.id ? 'right' : 'left'
           }}>
-            <div style={{ fontSize: '0.75rem', color: '#718096', marginBottom: '3px' }}>
+            <div style={{ fontSize: '0.75rem', color: '#3a7a94', marginBottom: '3px' }}>
               {msg.sender_name}
             </div>
             <span style={{

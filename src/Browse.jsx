@@ -94,7 +94,7 @@ function Browse({ currentUser, currentName }) {
                 <span style={{ color: '#f6ad55', fontSize: '1rem' }}>
                   {'⭐'.repeat(Math.round(getAvgRating(profile.id)))}
                 </span>
-                <p style={{ color: '#a0aec0', fontSize: '0.8rem' }}>
+                <p style={{ color: '#3a7a94', fontSize: '0.8rem' }}>
                   {getAvgRating(profile.id)}/5 ({ratings[profile.id].count} reviews)
                 </p>
               </div>
@@ -113,11 +113,11 @@ function Browse({ currentUser, currentName }) {
           </div>
 
           {ratings[profile.id]?.comments.length > 0 && (
-            <div style={{ marginTop: '10px', borderTop: '1px solid #2d3748', paddingTop: '10px' }}>
-              <p style={{ color: '#a0aec0', fontSize: '0.8rem', marginBottom: '6px' }}>Recent reviews:</p>
+            <div style={{ marginTop: '10px', borderTop: '1px solid #04344C', paddingTop: '10px' }}>
+              <p style={{ color: '#3a7a94', fontSize: '0.8rem', marginBottom: '6px' }}>Recent reviews:</p>
               {ratings[profile.id].comments.slice(0, 2).map((c, i) => (
                 <div key={i} style={{ marginBottom: '6px' }}>
-                  <p style={{ color: '#e2e8f0', fontSize: '0.85rem' }}>
+                  <p style={{ color: '#04344C', fontSize: '0.85rem' }}>
                     <strong>{c.name}</strong>: {c.comment}
                   </p>
                 </div>

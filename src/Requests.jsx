@@ -60,7 +60,7 @@ function Requests({ user, senderName }) {
       <div>
         <div className="page">
           <button onClick={() => setActiveChat(null)} style={{
-            background: '#2d3748', color: '#a0aec0', border: 'none',
+            background: '#2d3748', color: '#3a7a94', border: 'none',
             padding: '8px 16px', borderRadius: '6px', cursor: 'pointer',
             marginBottom: '16px'
           }}>
@@ -86,15 +86,15 @@ function Requests({ user, senderName }) {
 
       <div className="card" style={{ marginBottom: '24px' }}>
         <h3 style={{ marginBottom: '16px', color: '#b794f4' }}>📥 Incoming Requests</h3>
-        {incoming.length === 0 && <p style={{ color: '#718096' }}>No incoming requests yet.</p>}
+        {incoming.length === 0 && <p style={{ color: '#3a7a94' }}>No incoming requests yet.</p>}
         {incoming.map((req) => (
           <div key={req.id} style={{
-            borderBottom: '1px solid #2d3748',
+            borderBottom: '1px solid #04344C',
             paddingBottom: '16px', marginBottom: '16px'
           }}>
             <p style={{ fontWeight: '600', marginBottom: '4px' }}>{req.from_name}</p>
-            <p style={{ color: '#a0aec0', fontSize: '0.9rem', marginBottom: '8px' }}>
-              wants to exchange: <strong style={{ color: '#e2e8f0' }}>{req.skill_requested}</strong>
+            <p style={{ color: '#04344C', fontSize: '0.9rem', marginBottom: '4px' }}>
+  Skill: <strong style={{ color: '#04344C' }}>{req.skill_requested}</strong>
             </p>
             <p style={{ color: statusColor(req.status), fontSize: '0.85rem', marginBottom: '8px' }}>
               Status: {req.status}
@@ -133,14 +133,14 @@ function Requests({ user, senderName }) {
 
       <div className="card">
         <h3 style={{ marginBottom: '16px', color: '#68d391' }}>📤 Sent Requests</h3>
-        {outgoing.length === 0 && <p style={{ color: '#718096' }}>No sent requests yet.</p>}
+        {outgoing.length === 0 && <p style={{ color: '#3a7a94' }}>No sent requests yet.</p>}
         {outgoing.map((req) => (
           <div key={req.id} style={{
-            borderBottom: '1px solid #2d3748',
+            borderBottom: '1px solid #04344C',
             paddingBottom: '16px', marginBottom: '16px'
           }}>
             <p style={{ fontWeight: '600', marginBottom: '4px' }}>To: {req.to_name}</p>
-            <p style={{ color: '#a0aec0', fontSize: '0.9rem', marginBottom: '4px' }}>
+            <p style={{ color: '#3a7a94', fontSize: '0.9rem', marginBottom: '4px' }}>
               Skill: <strong style={{ color: '#e2e8f0' }}>{req.skill_requested}</strong>
             </p>
             <p style={{ color: statusColor(req.status), fontSize: '0.85rem', marginBottom: '8px' }}>
